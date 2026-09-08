@@ -22,6 +22,16 @@ public class Main {
         System.out.println(a * b);
         System.out.println(a / b);
         System.out.println(a % b);
+
+
+    
+        System.out.println(age == 16);
+        System.out.println(age == 18);
+        System.out.println(age != 16);
+        System.out.println(age > 15);
+        System.out.println(age < 15);
+        System.out.println(age >= 16);
+        System.out.println(age <= 10);
     }
 
 }

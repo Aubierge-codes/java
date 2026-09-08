@@ -32,6 +32,16 @@ public class Main {
         System.out.println(age < 15);
         System.out.println(age >= 16);
         System.out.println(age <= 10);
+
+         int score = 75;
+
+        if (score >= 50) {
+            System.out.println("You passed!");
+        } else {
+            System.out.println("You failed.");
+        }
+
+        
     }
 
 }

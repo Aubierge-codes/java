@@ -48,9 +48,9 @@ public class Main {
         System.out.println(age >= 18 || score >= 80);
         System.out.println(!hasPermission);
 
-        int number = 3;
+        int number = 1;
 
-switch (number) {
+        switch (number) {
     case 1:
         System.out.println("One");
         break;
@@ -69,6 +69,13 @@ switch (number) {
 
     default:
         System.out.println("Something else");
+}
+
+
+
+while (number <= 3) {
+    System.out.println(number);
+    number = number + 1;
 }
     }
 

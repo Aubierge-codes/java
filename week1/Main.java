@@ -85,6 +85,13 @@ while (number <= 3) {
         System.out.println(i + " " + j);
     }
     }
+
+    int[] scores = {80, 90, 75};
+
+System.out.println(scores[0]);
+System.out.println(scores[1]);
+System.out.println(scores[2]);
+
 }
 
 }

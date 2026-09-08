@@ -41,7 +41,13 @@ public class Main {
             System.out.println("You failed.");
         }
 
-        
+
+        boolean hasPermission = true;
+
+        System.out.println(age >= 16 && score >= 50);
+        System.out.println(age >= 18 || score >= 80);
+        System.out.println(!hasPermission);
+
     }
 
 }

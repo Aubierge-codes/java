@@ -13,6 +13,15 @@ public class Main {
         System.out.println(isStudent);
 
         System.out.println("Hello, Java!");
+
+         int a = 20;
+        int b = 6;
+
+        System.out.println(a + b);
+        System.out.println(a - b);
+        System.out.println(a * b);
+        System.out.println(a / b);
+        System.out.println(a % b);
     }
 
 }

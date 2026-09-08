@@ -92,6 +92,13 @@ System.out.println(scores[0]);
 System.out.println(scores[1]);
 System.out.println(scores[2]);
 
+
+int[] numbers = {10, 20, 30, 40, 50};
+
+for (int i = 0; i < 5; i = i + 1) {
+    System.out.println(numbers[i]);
+}
+
 }
 
 }

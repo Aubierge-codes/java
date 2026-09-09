@@ -17,6 +17,7 @@ class Student {
     String name;
     int age;
     String school;
+    char grade;
     
     
 

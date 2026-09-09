@@ -7,7 +7,7 @@ public class Objects {
         student1.name = "Aubierge";
         student1.age = 16;
         student1.school = "High School";
-
+        student1.study();
         student1.introduce();
     }
 }
@@ -24,5 +24,7 @@ class Student {
     void introduce() {
         System.out.println("My name is " + name + " and I am " + age + " years old.");
     }
-
+    void study() {
+    System.out.println(name + " is studying.");
+}
 }

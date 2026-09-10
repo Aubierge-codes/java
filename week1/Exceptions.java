@@ -2,14 +2,12 @@ public class Exceptions {
 
     public static void main(String[] args) {
 
-        int number = 10;
-        int divisor = 0;
-
         try {
 
-            int result = number / divisor;
+            int number = 10;
+            int result = number / 0;
 
-            System.out.println("Result: " + result);
+            System.out.println(result);
 
         } catch (ArithmeticException e) {
 

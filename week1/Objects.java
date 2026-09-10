@@ -2,32 +2,23 @@ public class Objects {
 
     public static void main(String[] args) {
 
-        try {
+        Box<String> nameBox = new Box<>("Aubierge");
+        Box<Integer> ageBox = new Box<>(16);
 
-            registerStudent(15);
-
-        } catch (InvalidAgeException e) {
-
-            System.out.println(e.getMessage());
-        }
-    }
-
-    public static void registerStudent(int age)
-            throws InvalidAgeException {
-
-        if (age < 16) {
-            throw new InvalidAgeException(
-                "Student must be at least 16 years old."
-            );
-        }
-
-        System.out.println("Student registered.");
+        System.out.println(nameBox.getValue());
+        System.out.println(ageBox.getValue());
     }
 }
 
-class InvalidAgeException extends Exception {
+class Box<T> {
 
-    public InvalidAgeException(String message) {
-        super(message);
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
     }
 }

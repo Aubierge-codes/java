@@ -10,6 +10,7 @@ public class Objects {
 
         student.introduce();
         student.code();
+        student.present();
     }
 }
 
@@ -29,10 +30,6 @@ abstract class Student {
         return name;
     }
 
-    public int getAge() {
-        return age;
-    }
-
     public String getSchool() {
         return school;
     }
@@ -45,7 +42,13 @@ interface Programmer {
     void code();
 }
 
-class CodingStudent extends Student implements Programmer {
+interface Presenter {
+
+    void present();
+}
+
+class CodingStudent extends Student
+        implements Programmer, Presenter {
 
     public CodingStudent(String name, int age, String school) {
         super(name, age, school);
@@ -61,6 +64,11 @@ class CodingStudent extends Student implements Programmer {
 
     @Override
     public void code() {
-        System.out.println(getName() + " is coding in Java.");
+        System.out.println(getName() + " is coding.");
+    }
+
+    @Override
+    public void present() {
+        System.out.println(getName() + " is presenting a project.");
     }
 }

@@ -12,13 +12,9 @@ public class StudentList {
 
         System.out.println("Number of students: " + students.size());
 
-        System.out.println();
-
         for (Student student : students) {
             student.introduce();
         }
-
-        System.out.println();
 
         students.remove(1);
 

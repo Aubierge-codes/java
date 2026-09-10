@@ -1,22 +1,25 @@
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Objects {
 
     public static void main(String[] args) {
 
-        ArrayList<String> students = new ArrayList<>();
+        HashMap<Integer, String> students = new HashMap<>();
 
-        students.add("Aubierge");
-        students.add("Flora");
-        students.add("Liam");
+        students.put(101, "Aubierge");
+        students.put(102, "Flora");
+        students.put(103, "Liam");
 
         System.out.println(students);
 
-        System.out.println("First student: " + students.get(0));
+        System.out.println("Student 101: " + students.get(101));
 
-        students.remove("Flora");
+        students.put(101, "Aubierge Umurerwa");
 
-        System.out.println("After removal: " + students);
-        System.out.println("Number of students: " + students.size());
+        System.out.println("Updated: " + students.get(101));
+
+        students.remove(103);
+
+        System.out.println("Final records: " + students);
     }
 }

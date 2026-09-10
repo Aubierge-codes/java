@@ -1,25 +1,17 @@
-import java.util.HashMap;
-
 public class Objects {
 
     public static void main(String[] args) {
 
-        HashMap<Integer, String> students = new HashMap<>();
+        try {
 
-        students.put(101, "Aubierge");
-        students.put(102, "Flora");
-        students.put(103, "Liam");
+            int result = 10 / 0;
+            System.out.println(result);
 
-        System.out.println(students);
+        } catch (ArithmeticException e) {
 
-        System.out.println("Student 101: " + students.get(101));
+            System.out.println("Cannot divide by zero.");
+        }
 
-        students.put(101, "Aubierge Umurerwa");
-
-        System.out.println("Updated: " + students.get(101));
-
-        students.remove(103);
-
-        System.out.println("Final records: " + students);
+        System.out.println("Program continues.");
     }
 }

@@ -41,3 +41,4 @@ class WebStudent implements Programmer {
     public void code() {
         System.out.println(name + " is coding web applications.");
     }
+}

@@ -2,15 +2,14 @@ public class Objects {
 
     public static void main(String[] args) {
 
-        Student student1 = new Student("Aubierge", 16, "High School");
+        CodingStudent student = new CodingStudent(
+            "Aubierge",
+            16,
+            "Rwanda Coding Academy"
+        );
 
-        System.out.println(student1.getName());
-        System.out.println(student1.getAge());
-        System.out.println(student1.getSchool());
-
-        student1.setAge(17);
-
-        System.out.println("Updated age: " + student1.getAge());
+        student.introduce();
+        student.code();
     }
 }
 
@@ -50,5 +49,16 @@ class Student {
             ", I am " + age +
             " years old, and I study at " + school + "."
         );
+    }
+}
+
+class CodingStudent extends Student {
+
+    public CodingStudent(String name, int age, String school) {
+        super(name, age, school);
+    }
+
+    public void code() {
+        System.out.println(getName() + " is coding in Java.");
     }
 }

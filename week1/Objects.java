@@ -4,14 +4,30 @@ public class Objects {
 
         try {
 
-            int result = 10 / 0;
-            System.out.println(result);
+            registerStudent(15);
 
-        } catch (ArithmeticException e) {
+        } catch (InvalidAgeException e) {
 
-            System.out.println("Cannot divide by zero.");
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void registerStudent(int age)
+            throws InvalidAgeException {
+
+        if (age < 16) {
+            throw new InvalidAgeException(
+                "Student must be at least 16 years old."
+            );
         }
 
-        System.out.println("Program continues.");
+        System.out.println("Student registered.");
+    }
+}
+
+class InvalidAgeException extends Exception {
+
+    public InvalidAgeException(String message) {
+        super(message);
     }
 }

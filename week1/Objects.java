@@ -3,20 +3,22 @@ public class Objects {
     public static void main(String[] args) {
 
         Student student1 = new Student("Aubierge", 16, "High School");
-        Student student2 = new Student("Flora", 17, "High School");
-        Student student3 = new Student("Liam", 18, "University");
 
-        student1.introduce();
-        student2.introduce();
-        student3.introduce();
+        System.out.println(student1.getName());
+        System.out.println(student1.getAge());
+        System.out.println(student1.getSchool());
+
+        student1.setAge(17);
+
+        System.out.println("Updated age: " + student1.getAge());
     }
 }
 
 class Student {
 
-    String name;
-    int age;
-    String school;
+    private String name;
+    private int age;
+    private String school;
 
     public Student(String name, int age, String school) {
         this.name = name;
@@ -24,11 +26,29 @@ class Student {
         this.school = school;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setAge(int age) {
+        if (age > 0) {
+            this.age = age;
+        }
+    }
+
     void introduce() {
         System.out.println(
-            "My name is " + this.name +
-            ", I am " + this.age +
-            " years old, and I study at " + this.school + "."
+            "My name is " + name +
+            ", I am " + age +
+            " years old, and I study at " + school + "."
         );
     }
 }

@@ -40,7 +40,12 @@ abstract class Student {
     public abstract void introduce();
 }
 
-class CodingStudent extends Student {
+interface Programmer {
+
+    void code();
+}
+
+class CodingStudent extends Student implements Programmer {
 
     public CodingStudent(String name, int age, String school) {
         super(name, age, school);
@@ -54,6 +59,7 @@ class CodingStudent extends Student {
         );
     }
 
+    @Override
     public void code() {
         System.out.println(getName() + " is coding in Java.");
     }

@@ -2,14 +2,13 @@ public class Objects {
 
     public static void main(String[] args) {
 
-        CodingStudent student = new CodingStudent(
+        Student student = new CodingStudent(
             "Aubierge",
             16,
             "Rwanda Coding Academy"
         );
 
         student.introduce();
-        student.code();
     }
 }
 
@@ -58,7 +57,17 @@ class CodingStudent extends Student {
         super(name, age, school);
     }
 
+    @Override
+    void introduce() {
+        System.out.println(
+            "I am " + getName() +
+            ", a coding student at " + getSchool() + "."
+        );
+    }
+
     public void code() {
         System.out.println(getName() + " is coding in Java.");
     }
 }
+
+

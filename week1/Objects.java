@@ -2,17 +2,18 @@ public class Objects {
 
     public static void main(String[] args) {
 
-        Student student = new CodingStudent(
+        CodingStudent student = new CodingStudent(
             "Aubierge",
             16,
             "Rwanda Coding Academy"
         );
 
         student.introduce();
+        student.code();
     }
 }
 
-class Student {
+abstract class Student {
 
     private String name;
     private int age;
@@ -36,19 +37,7 @@ class Student {
         return school;
     }
 
-    public void setAge(int age) {
-        if (age > 0) {
-            this.age = age;
-        }
-    }
-
-    void introduce() {
-        System.out.println(
-            "My name is " + name +
-            ", I am " + age +
-            " years old, and I study at " + school + "."
-        );
-    }
+    public abstract void introduce();
 }
 
 class CodingStudent extends Student {
@@ -58,7 +47,7 @@ class CodingStudent extends Student {
     }
 
     @Override
-    void introduce() {
+    public void introduce() {
         System.out.println(
             "I am " + getName() +
             ", a coding student at " + getSchool() + "."
@@ -69,5 +58,3 @@ class CodingStudent extends Student {
         System.out.println(getName() + " is coding in Java.");
     }
 }
-
-

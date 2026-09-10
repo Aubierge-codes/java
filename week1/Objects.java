@@ -1,24 +1,79 @@
+import java.util.ArrayList;
+
 public class Objects {
 
     public static void main(String[] args) {
 
-        Box<String> nameBox = new Box<>("Aubierge");
-        Box<Integer> ageBox = new Box<>(16);
+        ArrayList<Student> students = new ArrayList<>();
 
-        System.out.println(nameBox.getValue());
-        System.out.println(ageBox.getValue());
+        students.add(
+            new CodingStudent(
+                "Aubierge",
+                16,
+                "Rwanda Coding Academy"
+            )
+        );
+
+        students.add(
+            new CodingStudent(
+                "Flora",
+                17,
+                "High School"
+            )
+        );
+
+        for (Student student : students) {
+            student.introduce();
+        }
     }
 }
 
-class Box<T> {
+abstract class Student {
 
-    private T value;
+    private String name;
+    private int age;
+    private String school;
 
-    public Box(T value) {
-        this.value = value;
+    public Student(String name, int age, String school) {
+        this.name = name;
+        this.age = age;
+        this.school = school;
     }
 
-    public T getValue() {
-        return value;
+    public String getName() {
+        return name;
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public abstract void introduce();
+}
+
+interface Programmer {
+
+    void code();
+}
+
+class CodingStudent extends Student implements Programmer {
+
+    public CodingStudent(String name, int age, String school) {
+        super(name, age, school);
+    }
+
+    @Override
+    public void introduce() {
+        System.out.println(
+            "Coding student: " +
+            getName() +
+            " - " +
+            getSchool()
+        );
+    }
+
+    @Override
+    public void code() {
+        System.out.println(getName() + " is coding.");
     }
 }

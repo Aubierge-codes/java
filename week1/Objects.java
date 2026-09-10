@@ -1,32 +1,22 @@
+import java.util.ArrayList;
+
 public class Objects {
 
     public static void main(String[] args) {
 
-        Programmer programmer = new CodingStudent(
-            "Aubierge",
-            16,
-            "Rwanda Coding Academy"
-        );
+        ArrayList<String> students = new ArrayList<>();
 
-        programmer.code();
-    }
-}
+        students.add("Aubierge");
+        students.add("Flora");
+        students.add("Liam");
 
-interface Programmer {
+        System.out.println(students);
 
-    void code();
-}
+        System.out.println("First student: " + students.get(0));
 
-class CodingStudent implements Programmer {
+        students.remove("Flora");
 
-    private String name;
-
-    public CodingStudent(String name, int age, String school) {
-        this.name = name;
-    }
-
-    @Override
-    public void code() {
-        System.out.println(name + " is coding in Java.");
+        System.out.println("After removal: " + students);
+        System.out.println("Number of students: " + students.size());
     }
 }

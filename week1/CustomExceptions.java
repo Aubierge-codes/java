@@ -3,15 +3,14 @@ public class CustomExceptions {
     public static void main(String[] args) {
 
         try {
-
-            Student student = new Student("Aubierge", 16);
-
-            student.setAge(-5);
+            Student student = new Student("Aubierge", -5);
+            System.out.println(student.getAge());
 
         } catch (InvalidAgeException e) {
-
             System.out.println("Error: " + e.getMessage());
         }
+
+        System.out.println("Program continues.");
     }
 }
 
@@ -22,21 +21,16 @@ class Student {
 
     public Student(String name, int age) throws InvalidAgeException {
 
-        if (age <= 0) {
-            throw new InvalidAgeException("Age must be greater than zero.");
+        if (age < 0) {
+            throw new InvalidAgeException("Age cannot be negative.");
         }
 
         this.name = name;
         this.age = age;
     }
 
-    public void setAge(int age) throws InvalidAgeException {
-
-        if (age <= 0) {
-            throw new InvalidAgeException("Age must be greater than zero.");
-        }
-
-        this.age = age;
+    public int getAge() {
+        return age;
     }
 }
 

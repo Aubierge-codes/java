@@ -1,3 +1,4 @@
+import exception.InvalidStudentException;
 import model.Student;
 import model.StudentStatus;
 import repository.Repository;
@@ -47,19 +48,27 @@ public class Main {
             student.display();
         }
 
-        System.out.println("\nChanging Flora's status:");
+        System.out.println("\nTesting invalid student data:");
 
-        student2.setStatus(StudentStatus.INACTIVE);
+        try {
 
-        student2.display();
+            Student invalidStudent = new Student(
+                    104,
+                    "",
+                    "invalid-email",
+                    "Software Development",
+                    StudentStatus.ACTIVE
+            );
 
-        System.out.println("\nActive students:");
+            studentRepository.add(invalidStudent);
 
-        for (Student student : studentRepository.findAll()) {
+        } catch (InvalidStudentException e) {
 
-            if (student.getStatus() == StudentStatus.ACTIVE) {
-                student.display();
-            }
+            System.out.println(
+                    "Error: " + e.getMessage()
+            );
         }
+
+        System.out.println("\nProject is still running normally.");
     }
 }

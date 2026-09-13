@@ -1,4 +1,5 @@
 import model.Student;
+import model.StudentStatus;
 import repository.Repository;
 
 public class Main {
@@ -16,50 +17,49 @@ public class Main {
                 101,
                 "Aubierge",
                 "aubierge@example.com",
-                "Software Development"
+                "Software Development",
+                StudentStatus.ACTIVE
         );
 
         Student student2 = new Student(
                 102,
                 "Flora",
                 "flora@example.com",
-                "Embedded Systems"
+                "Embedded Systems",
+                StudentStatus.ACTIVE
+        );
+
+        Student student3 = new Student(
+                103,
+                "Liam",
+                "liam@example.com",
+                "Computer Science",
+                StudentStatus.GRADUATED
         );
 
         studentRepository.add(student1);
         studentRepository.add(student2);
+        studentRepository.add(student3);
 
-        System.out.println("\nRegistered Students:");
-
-        for (Student student : studentRepository.findAll()) {
-            student.display();
-        }
-
-        System.out.println(
-                "\nTotal students: "
-                + studentRepository.count()
-        );
-
-        System.out.println("\nFinding student at index 0:");
-
-        Student foundStudent =
-                studentRepository.findByIndex(0);
-
-        if (foundStudent != null) {
-            foundStudent.display();
-        }
-
-        System.out.println("\nRemoving Flora:");
-
-        studentRepository.remove(student2);
+        System.out.println("\nAll Students:");
 
         for (Student student : studentRepository.findAll()) {
             student.display();
         }
 
-        System.out.println(
-                "\nTotal students: "
-                + studentRepository.count()
-        );
+        System.out.println("\nChanging Flora's status:");
+
+        student2.setStatus(StudentStatus.INACTIVE);
+
+        student2.display();
+
+        System.out.println("\nActive students:");
+
+        for (Student student : studentRepository.findAll()) {
+
+            if (student.getStatus() == StudentStatus.ACTIVE) {
+                student.display();
+            }
+        }
     }
 }

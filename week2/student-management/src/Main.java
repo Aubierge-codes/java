@@ -1,7 +1,5 @@
-import exception.InvalidStudentException;
-import model.Student;
-import model.StudentStatus;
-import repository.Repository;
+import model.Course;
+import repository.CourseRepository;
 
 public class Main {
 
@@ -11,64 +9,66 @@ public class Main {
         System.out.println("     STUDENT MANAGEMENT SYSTEM");
         System.out.println("=================================");
 
-        Repository<Student> studentRepository =
-                new Repository<>();
+        CourseRepository courseRepository = new CourseRepository();
 
-        Student student1 = new Student(
-                101,
-                "Aubierge",
-                "aubierge@example.com",
-                "Software Development",
-                StudentStatus.ACTIVE
+        Course java = new Course(
+                1,
+                "Java Programming",
+                4
         );
 
-        Student student2 = new Student(
-                102,
-                "Flora",
-                "flora@example.com",
+        Course networking = new Course(
+                2,
+                "Computer Networking",
+                3
+        );
+
+        Course embedded = new Course(
+                3,
                 "Embedded Systems",
-                StudentStatus.ACTIVE
+                5
         );
 
-        Student student3 = new Student(
-                103,
-                "Liam",
-                "liam@example.com",
-                "Computer Science",
-                StudentStatus.GRADUATED
+        courseRepository.addCourse(java);
+        courseRepository.addCourse(networking);
+        courseRepository.addCourse(embedded);
+
+        System.out.println();
+        System.out.println("All Courses:");
+
+        courseRepository.displayAllCourses();
+
+        System.out.println();
+        System.out.println("Searching for course ID 2:");
+
+        Course foundCourse = courseRepository.findById(2);
+
+        if (foundCourse != null) {
+            foundCourse.displayCourse();
+        } else {
+            System.out.println("Course not found.");
+        }
+
+        System.out.println();
+        System.out.println("Removing course ID 3:");
+
+        boolean removed = courseRepository.removeCourse(3);
+
+        if (removed) {
+            System.out.println("Course removed successfully.");
+        } else {
+            System.out.println("Course not found.");
+        }
+
+        System.out.println();
+        System.out.println("Courses after removal:");
+
+        courseRepository.displayAllCourses();
+
+        System.out.println();
+        System.out.println(
+                "Total courses: " +
+                courseRepository.getCourseCount()
         );
-
-        studentRepository.add(student1);
-        studentRepository.add(student2);
-        studentRepository.add(student3);
-
-        System.out.println("\nAll Students:");
-
-        for (Student student : studentRepository.findAll()) {
-            student.display();
-        }
-
-        System.out.println("\nTesting invalid student data:");
-
-        try {
-
-            Student invalidStudent = new Student(
-                    104,
-                    "",
-                    "invalid-email",
-                    "Software Development",
-                    StudentStatus.ACTIVE
-            );
-
-            studentRepository.add(invalidStudent);
-
-        } catch (InvalidStudentException e) {
-
-            System.out.println(
-                    "Error: " + e.getMessage()
-            );
-        }
-
-        System.out.println("\nProject is still running normally.");
     }
 }
